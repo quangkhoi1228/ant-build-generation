@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project tradingsystemweb with libraries in sub-folder">
+<project default="create_run_jar" name="Create Runnable Jar for Project ${{project_name}} with libraries in sub-folder">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="/Volumes/home/Project/workspace"/>
+    <property name="dir.workspace" value="${{workspace}}"/>
     <property name="dir.jarfile" value="${dir.buildfile}"/>
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/tradingsystemweb.jar">
+        <jar destfile="${dir.jarfile}/${{project_name}}.jar">
             <manifest>
-                <attribute name="Main-Class" value="com.tradingsystemweb.main.TradingSystemWebMain"/>
-                <attribute name="Class-Path" value=""/>
+                <attribute name="Main-Class" value="${{main_class}}"/>
+                <!-- <attribute name="Class-Path" value=". tradingsystemweb_lib/shinobiserver.jar tradingsystemweb_lib/netty-all-4.1.36.Final.jar tradingsystemweb_lib/slf4j-api-1.7.26.jar" /> -->
+                <attribute name="Class-Path" value=". ${{jar_file_in_lib_folder_class_path}}"/>
             </manifest>
         </jar>
-        <delete dir="${dir.jarfile}/tradingsystemweb_lib"/>
-        <mkdir dir="${dir.jarfile}/tradingsystemweb_lib"/>
-       
+        <delete dir="${dir.jarfile}/${{project_name}}_lib"/>
+        <mkdir dir="${dir.jarfile}/${{project_name}}_lib"/>
+        <!-- <copy file="/Users/2apple_mjlq2/.m2/repository/io/socket/socket.io-client/2.0.1/socket.io-client-2.0.1.jar" todir="${dir.jarfile}/tradingsystemweb_lib"/> -->
+        ${{jar_file_in_user_maven_folder_class_path}}
     </target>
 </project>
