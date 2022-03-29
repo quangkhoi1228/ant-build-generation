@@ -13,4 +13,4 @@
 ## Usage
 
 1. Change content file `declare.sh` to suitable with your project 
-2. Go to `script` folder and run file `run.sh` (`sh run.sh`)
+2. Run file `run.sh` (`sh run.sh`)

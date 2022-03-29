@@ -4,6 +4,7 @@ export workspace=$workspace
 export main_class=$main_class
 export output_dir=$output_dir
 
+export current_path="$PWD"
 
 cd $project_dir
 
@@ -39,7 +40,7 @@ done < $dependency_list_file_name
 export xml_file_name=build_${project_name}.xml
 cd $output_dir
 rm $xml_file_name
-cat ../template/template.xml > $xml_file_name
+cat $current_path/template/template.xml > $xml_file_name
 
 sed -i -e 's/\${{project_name}}/'${project_name}'/g' $xml_file_name
 sed -i -e 's/\${{main_class}}/'${main_class}'/g' $xml_file_name
