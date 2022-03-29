@@ -7,22 +7,22 @@ export output_dir=$output_dir
 
 cd $project_dir
 
-# brew install maven
+brew install maven
 
 #create dependency list file 
 #maven jar
 export dependency_list_file_name=$output_dir/${project_name}_dependency_list.csv
-# rm $dependency_list_file_name
-# mvn dependency:build-classpath -Dmdep.outputFile=$dependency_list_file_name
-# sed -i -e 's/:/\'$'\n''/g' $dependency_list_file_name
-# rm $dependency_list_file_name-e
+rm $dependency_list_file_name
+mvn dependency:build-classpath -Dmdep.outputFile=$dependency_list_file_name
+sed -i -e 's/:/\'$'\n''/g' $dependency_list_file_name
+rm $dependency_list_file_name-e
 
-# #other jar
-# declare -a  project_jar_directory_dependencies1=$project_jar_directory_dependencies
-# for file in "${project_jar_directory_dependencies1[@]}"
-# do
-#     echo "\n$file" >> $dependency_list_file_name
-# done
+#other jar
+declare -a  project_jar_directory_dependencies1=$project_jar_directory_dependencies
+for file in "${project_jar_directory_dependencies1[@]}"
+do
+    echo "\n$file" >> $dependency_list_file_name
+done
 
 # create 
 export jar_file_in_lib_folder_class_path=""
