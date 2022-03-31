@@ -12,5 +12,5 @@
 
 ## Usage
 
-1. Change content file `declare.sh` to suitable with your project 
+1. Change content file `declare.sh` to suitable with your project
 2. Run file `run.sh` (`sh run.sh`)
